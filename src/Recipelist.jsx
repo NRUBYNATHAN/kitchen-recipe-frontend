@@ -39,9 +39,9 @@ const getMovies=()=>{
 
   return (
  
+  
     <div>
-     
-      <div  className="all">
+       <div  className="all">
         {obj.map((mv) => 
         (<Recipe key={mv.id} 
         data={mv} 
@@ -51,7 +51,7 @@ const getMovies=()=>{
         />))}
       </div>
     </div>
-
+   
   );
 }
 function Recipe({data}){
