@@ -60,7 +60,7 @@ addrecipes(value);
         headers:{"Content-Type": "application/json",},
         
       });
-     navigate("/")
+     navigate("/allrecipe")
        };
   function addInputField(e) {
     console.log(e);

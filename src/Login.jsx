@@ -32,7 +32,7 @@ setFormstate("error")
 const result=await data.json()
 console.log(result)
 localStorage.setItem("token",result.token)
-navigate("/")
+navigate("/allrecipe")
         }
     }
   })

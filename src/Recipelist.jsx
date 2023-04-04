@@ -24,7 +24,7 @@ export function Recipelist () {
   const [obj, setObject] = useState([]);
 
 const getMovies=()=>{
-  fetch(`${API}`,{
+  fetch(`${API}/allrecipe`,{
               headers:{
                 "x-auth-token":localStorage.getItem("token")
                }

@@ -644,8 +644,9 @@ export default function App(){
  
      <Routes>
 
- <Route  path="/"   element={<ProductedRoute><Recipelist /></ProductedRoute>} />
+ <Route  path="/allrecipe"   element={<ProductedRoute><Recipelist /></ProductedRoute>} />
  <Route  path="*"   element={<Notfound />} />
+ <Route  path="/"   element={<Home />} />
  <Route  path="/signup"   element={<Signup />} />
  <Route  path="/login"   element={<Login />} />
  <Route  path="/forgot"   element={<Forgot />} />
@@ -715,3 +716,10 @@ function ProductedRoute({children}){
   )
 }
 
+function Home(){
+  return(
+    <div>
+      hello
+    </div>
+  )
+}
