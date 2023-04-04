@@ -6,6 +6,7 @@ import { API } from './global';
 import * as yup from "yup";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Card from '@mui/material/Card';
 export function Signup() {
   const navigate=useNavigate();
   const[show,setShow]=useState("success")

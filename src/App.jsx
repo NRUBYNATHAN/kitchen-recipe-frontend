@@ -466,6 +466,7 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { Forgot } from "./Forgot";
 import { Reset } from "./Reset";
+import { Home } from "./Home";
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -544,7 +545,7 @@ export default function App(){
           >
             <MenuIcon />
           </IconButton>
-      <Button  onClick={()=>navigate("/")} color="inherit"><Logo/></Button>
+      <Button  onClick={()=>navigate("/allrecipe")} color="inherit"><Logo/></Button>
      <Button sx={{marginLeft:"auto"}} onClick={()=>navigate("/signup")} color="inherit">Signup</Button>
      <Button onClick={()=>navigate("/login")} color="inherit">Login</Button>
      <Button onClick={()=>navigate("/addrecipe")} color="inherit">ADD</Button>      
@@ -716,10 +717,3 @@ function ProductedRoute({children}){
   )
 }
 
-function Home(){
-  return(
-    <div>
-      hello
-    </div>
-  )
-}
