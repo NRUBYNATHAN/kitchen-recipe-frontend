@@ -18,7 +18,7 @@ export function Login() {
     onSubmit:async(value)=>{
       console.log(value)
       
-        const data= await fetch(`${API}/login`,{
+        const data= await fetch(`${API}/userLogin`,{
           method:"POST",
           headers: {"Content-type": "application/json",},
           body:JSON.stringify(value)
