@@ -417,7 +417,7 @@ bottom:80px;
 }
 .homebtn{
   position: absolute;
-  bottom: 2%;
+  bottom: 3%;
   left:4%;
 }
 .homecard{
@@ -447,4 +447,17 @@ bottom:80px;
 .sea{
   position: absolute;
   bottom:2%;
+}
+@media only screen and (min-width: 400px) and (max-width: 1500px) {
+  
+    .homebtn{
+      position:relative;
+   bottom: 50px;
+    }
+
+}
+@media only screen and (min-width: 400px) and (max-width: 1000px) {
+  .flag1 {
+    font-size: 30px;
+  }
 }
