@@ -16,27 +16,47 @@ return res.json()
   }
 }
 function logout(){
-  localStorage.removeItem("token");
+  localStorage.clear();
   window.location.href="/signup"
 }
 export function Recipelist () {
 
   const [obj, setObject] = useState([]);
 
-const getMovies=()=>{
-  fetch(`${API}/allrecipe`,{
-              headers:{
-                "x-auth-token":localStorage.getItem("token")
-               }
-             })
-      .then((res) => checkAuth(res))
-      .then((mvs) => setObject(mvs))
-      .catch(err=>logout())
-}
+// const getMovies=()=>{
+//   fetch(`${API}/allrecipe`,{
+//               headers:{
+//                 "x-auth-token":localStorage.getItem("token")
+//                }
+//              })
+//       .then((res) => checkAuth(res))
+//       .then((mvs) => setObject(mvs))
+//       .catch(err=>logout())
+// }
 
-  useEffect(() => getMovies(), []);
+//   useEffect(() => getMovies(), []);
 
-
+  // const getMovies=()=>{
+  //   fetch(`${API}/allrecipe`,{
+  //               headers:{
+  //                 "x-auth-token":localStorage.getItem("token")
+  //                }
+  //              })
+  //       .then((res) => checkAuth(res))
+  //       .then((mvs) => setObject(mvs))
+  //       .catch(err=>logout())
+  // }
+  
+    useEffect(() => {
+    fetch(`${API}/allrecipe`,{
+      headers:{
+        "x-auth-token":localStorage.getItem("token"),
+       },
+     })
+.then((res) => checkAuth(res))
+.then((mvs) => setObject(mvs))
+.catch(err=>logout())}, []);
+  
   return (
  
   
