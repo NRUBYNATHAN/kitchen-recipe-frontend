@@ -348,7 +348,7 @@ justify-content: center;
   flex-direction: column;
   gap: 20px;
   max-width: 500px;
-  margin: 100px auto;
+  margin: 0px auto;
  
 }
 .sign{
@@ -365,7 +365,8 @@ justify-content: center;
 .sign1{
   display: flex;
   justify-content: center;
- ;
+ margin-top: 0px;
+ margin-bottom: 0px;
 }
 .product{
   display: flex;
@@ -460,4 +461,10 @@ bottom:80px;
   .flag1 {
     font-size: 30px;
   }
+}
+.addbtn{
+  width: 100%;
+}
+.sigbtn{
+  width: 500px;
 }

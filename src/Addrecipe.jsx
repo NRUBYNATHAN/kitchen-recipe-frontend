@@ -8,6 +8,8 @@ import { API } from "./global";
 import Card from '@mui/material/Card';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export function Addrecipe() {
   const [inputFields, setInputFields] = useState([""]);
   const [inputFields1, setInputFields1] = useState([""]);
@@ -102,6 +104,16 @@ addrecipes(value);
     setIngredients(ingredientsCopy);
     setInputFields1(copyInputField);
   }
+  const notify = () => toast.success('🥗successfully added', {
+    position: "top-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    }); 
   return (
    
      <form onSubmit={handleSubmit}>
@@ -213,8 +225,22 @@ addrecipes(value);
      
      
   
-         
-     <Button type="submit" variant="contained">addrecipe</Button>
+     <div>
+     <Button className='addbtn' onClick={notify} type="submit" variant="contained">addrecipe</Button>
+     <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
+     </div>    
+     
     
      </Card>
      </form>
