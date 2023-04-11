@@ -417,9 +417,15 @@ bottom:80px;
   width: 100%;
 }
 .homebtn{
+  
   position: absolute;
   bottom: 3%;
-  left:4%;
+  left:8%;
+}
+.hbtns{
+height: 70px;
+  width: 300px;
+ font-weight: 500;
 }
 .homecard{
   display: grid;
@@ -455,7 +461,10 @@ bottom:80px;
       position:relative;
    bottom: 50px;
     }
-
+    .hbtns{
+      height: 40px;
+        width: 100px;
+      }
 }
 @media only screen and (min-width: 400px) and (max-width: 1000px) {
   .flag1 {

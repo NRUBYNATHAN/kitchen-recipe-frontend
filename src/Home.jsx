@@ -12,7 +12,7 @@ export function Home() {
       <div>
      <img className='homesrc' src="https://bloggerspassion.com/wp-content/uploads/2019/12/best-food-blogs-to-follow.jpg"/>
    <div className='homebtn'>
-<Button variant='contained' color="primary" onClick={()=>navigate("/signup")}>signup</Button>
+<Button className='hbtns' variant='contained' color="primary" onClick={()=>navigate("/signup")}>signup</Button>
    </div>
    </div>
    <div className='target'>   <Link className='ang1' to={`/cuisine`}> <h1 className='homename'>cuisines</h1>  </Link></div>
