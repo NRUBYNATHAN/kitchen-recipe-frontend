@@ -15,17 +15,11 @@ body{
   height: min-content;
   position:relative;
   left:0px;
+  transition: transform 450ms;
   
 }
-.card:not(:first-child){
-  margin-left: -50px;
-}
 .card:hover{
-  transform: translateY(-20px);
-
-}
-.card:hover ~ .card{
-left:50px
+  transform: scale(1.08);
 }
 .img{
   width: 300px;
