@@ -101,7 +101,7 @@ toast.success('Login  Successfull 💯✨!',{
       <form className='login' onSubmit={handleSubmit}>
         <h1>login</h1>
        <TextField   value={values.email} name="email" onChange={handleChange} label="email" />
-      <TextField   name="password" onChange={handleChange}  label="password"/>
+      <TextField   name="password" onChange={handleChange} type="password"  label="password"/>
       
       <Button  type="submit"  color={formstate} variant='contained'>{formstate==="success"?"submit":"retry"}</Button>
      
