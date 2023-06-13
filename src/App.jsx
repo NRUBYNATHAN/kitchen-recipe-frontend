@@ -84,6 +84,7 @@ import { Login } from "./Login";
 import { Forgot } from "./Forgot";
 import { Reset } from "./Reset";
 import { Home } from "./Home";
+import { useStateValue } from "./StateProvider";
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -133,6 +134,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 
 export default function App(){
+  const[{user},dispatch]=useStateValue();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -164,7 +166,7 @@ export default function App(){
           </IconButton>
       <Button  onClick={()=>navigate("/allrecipe")} color="inherit"><Logo/></Button>
      <Button sx={{marginLeft:"auto"}} onClick={()=>navigate("/signup")} color="inherit">Signup</Button>
-     <Button onClick={()=>navigate("/login")} color="inherit">Login</Button>
+     <Button onClick={()=>navigate("/login")} color="inherit">{user? user : "LOGIN"}</Button>
      <Button onClick={()=>navigate("/addrecipe")} color="inherit">ADD</Button>      
      <Button onClick={()=>navigate("/about")} color="inherit">About Us</Button>  
 

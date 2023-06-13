@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useStateValue } from './StateProvider';
 export function Login() {
+  const[{user},dispatch]=useStateValue();
 
   const navigate=useNavigate();
   const[formstate,setFormstate]=useState("success")
@@ -93,6 +95,14 @@ toast.success('Login  Successfull 💯✨!',{
 
 }}  
 
+const signin=e=>{
+
+dispatch({
+  type:"SET_USER",
+  user:values.email,
+})
+}
+
 
   return (
     <div>
@@ -103,9 +113,9 @@ toast.success('Login  Successfull 💯✨!',{
        <TextField   value={values.email} name="email" onChange={handleChange} label="email" />
       <TextField   name="password" onChange={handleChange} type="password"  label="password"/>
       
-      <Button  type="submit"  color={formstate} variant='contained'>{formstate==="success"?"submit":"retry"}</Button>
+      <Button onClick={signin}  type="submit"  color={formstate} variant='contained'>{formstate==="success"?"submit":"retry"}</Button>
      
-     
+  
      
  
       </form>
