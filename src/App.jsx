@@ -133,11 +133,12 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 
+
 export default function App(){
   const[{user},dispatch]=useStateValue();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const navigate=useNavigate();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -145,8 +146,12 @@ export default function App(){
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const logout=()=>{
+    localStorage.clear()
+    navigate("/login")
+   }
 
-  const navigate=useNavigate()
+  
   return(
    
     <div  >
@@ -165,8 +170,11 @@ export default function App(){
             <MenuIcon />
           </IconButton>
       <Button  onClick={()=>navigate("/allrecipe")} color="inherit"><Logo/></Button>
-     <Button sx={{marginLeft:"auto"}} onClick={()=>navigate("/signup")} color="inherit">Signup</Button>
-     <Button onClick={()=>navigate("/login")} color="inherit">{user? user : "LOGIN"}</Button>
+     <Button sx={{marginLeft:"auto"}} onClick={()=>navigate("/signup")} color="inherit">{user?"":"Signup"}</Button>
+    {user?<Button onClick={()=>logout()} color="inherit">Logout</Button>:
+    <Button onClick={()=>navigate("/login")} color="inherit">Login</Button>
+    }
+    
      <Button onClick={()=>navigate("/addrecipe")} color="inherit">ADD</Button>      
      <Button onClick={()=>navigate("/about")} color="inherit">About Us</Button>  
 
