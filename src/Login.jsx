@@ -106,6 +106,11 @@ dispatch({
 
   return (
     <div>
+      <div className='mn'>
+      <p>Test user: ruby@gmail.com</p>
+        <p>Test password: 12345678</p>
+      </div>
+     
     <div>
       {formstate==="success"?null:<div className='sign1'><p className='sign'>Invalid Credentials</p></div>}
       <form className='login' onSubmit={handleSubmit}>

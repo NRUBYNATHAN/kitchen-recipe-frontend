@@ -471,3 +471,10 @@ height: 70px;
 .sigbtn{
   width: 500px;
 }
+
+.mn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

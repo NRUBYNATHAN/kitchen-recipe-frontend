@@ -70,7 +70,7 @@ addsignup(value)
       {show==="success"?null:<div className='sign1'><p className='sign'>user alrady exists</p></div>}
       <form className='signup' onSubmit={handleSubmit}>
        <h1>signup</h1>
-        <TextField  onBlur={handleBlur} error={touched.firstname && errors.firstname} helperText={touched.firstname && errors.firstname ?errors.firstname :null} value={values.firstname} name="firstname" onChange={handleChange} label="firstname" variant="outlined"/>
+        <TextField  onBlur ={handleBlur} error={touched.firstname && errors.firstname} helperText={touched.firstname && errors.firstname ?errors.firstname :null} value={values.firstname} name="firstname" onChange={handleChange} label="firstname" variant="outlined"/>
       <TextField onBlur={handleBlur} error={touched.lastname && errors.lastname} helperText={touched.lastname && errors.lastname ?errors.lastname :null} value={values.lastname} name="lastname" onChange={handleChange} label="lastname" />
       <TextField  onBlur={handleBlur} error={touched.email && errors.email} helperText={touched.email && errors.email ?errors.email :null} value={values.email} name="email" onChange={handleChange} label="email" />
       <TextField  onBlur={handleBlur} error={touched.password && errors.password} helperText={touched.password && errors.password ?errors.password :null} value={values.password} name="password" onChange={handleChange} type="password"  label="password"/>
