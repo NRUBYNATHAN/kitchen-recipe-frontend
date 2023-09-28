@@ -10,6 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useMutation } from '@tanstack/react-query';
+import { queryClient } from './App';
 export function Addrecipe() {
   const [inputFields, setInputFields] = useState([""]);
   const [inputFields1, setInputFields1] = useState([""]);
@@ -50,20 +52,65 @@ export function Addrecipe() {
     validationSchema : formValidationSchema,
     onSubmit:(value)=>{
 console.log(value)
-addrecipes(value);
+addrecipes.mutate(value);
     }
   })
   const navigate=useNavigate();
-  const addrecipes=async (value)=>{
+
+
+
+
+//NORMAL ADDING METHOD
+
+  // const addrecipes=async (value)=>{
    
-      fetch(`${API}/addrecipe`,{
-        method:"POST",
-        body:JSON.stringify([value]),
-        headers:{"Content-Type": "application/json",},
+  //     fetch(`${API}/addrecipe`,{
+  //       method:"POST",
+  //       body:JSON.stringify([value]),
+  //       headers:{"Content-Type": "application/json",},
         
-      });
-     navigate("/allrecipe")
-       };
+  //     });
+  //    navigate("/allrecipe")
+  //      };
+
+
+  //OBTIMISING ADDING METHOD
+  // add panrapo takkunu screen la kattum and background fetch akum but screen la kattirum.
+  //suppose screen la katrapo entha error vanthalum antha screen la katnatha etuthutu michatha kattum
+  //ithu ellam fast ah natakum.
+
+  const addrecipes=useMutation({
+    mutationFn:(value) =>
+  fetch("https://kitchen-recipe-backend-t7kn-git-master-nrubynathan.vercel.app/addrecipe",{
+    method:"POST",
+    body:JSON.stringify([value]),
+    headers:{"Content-Type": "application/json",
+  },
+    
+  }),
+  onMutate: async (value) => {
+    await queryClient.cancelQueries(["recipes"]);
+    const previousRecipes = queryClient.getQueryData(["recipes"]);
+
+    queryClient.setQueryData(["recipes"], (oldRecipes) => [
+      ...oldRecipes,
+      { ...value, id: Date.now() },
+    ]);
+
+    return {previousRecipes};
+  },
+  onError: (err, id, context) => {
+    queryClient.setQueryData(["recipes"], context.previousRecipes);
+  },
+
+
+    onSettled: () => {
+      queryClient.invalidateQueries(["recipes"]);
+       },
+    
+  })
+ 
+
   function addInputField(e) {
     console.log(e);
     console.log(errors);

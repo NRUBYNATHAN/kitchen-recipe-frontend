@@ -85,6 +85,11 @@ import { Forgot } from "./Forgot";
 import { Reset } from "./Reset";
 import { Home } from "./Home";
 import { useStateValue } from "./StateProvider";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+export const queryClient = new QueryClient();
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -153,7 +158,8 @@ export default function App(){
 
   
   return(
-   
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
     <div  >
    
     <Box sx={{ display: 'flex' }}>
@@ -174,7 +180,7 @@ export default function App(){
     {user?<Button onClick={()=>logout()} color="inherit">Logout</Button>:
     <Button onClick={()=>navigate("/login")} color="inherit">Login</Button>
     }
-    
+       <Button onClick={()=>navigate("/allrecipe")} color="inherit">Recipes</Button>  
      <Button onClick={()=>navigate("/addrecipe")} color="inherit">ADD</Button>      
      <Button onClick={()=>navigate("/about")} color="inherit">About Us</Button>  
 
@@ -322,6 +328,7 @@ export default function App(){
     </Box>
     
     </div>
+    </QueryClientProvider>
    
   );
 }
